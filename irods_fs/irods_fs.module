@@ -39,15 +39,24 @@ function irods_fs_stream_wrappers() {
 function irods_fs_menu() {
     $items = array();
 
+    // $items['admin/config/media/irods_fs'] = array(
+    //     'title' => 'iRODS Data Storage',
+    //     'description' => 'Configure your iRODS credentials and connection',
+    //     'page callback' => 'drupal_get_form',
+    //     'page arguments' => array('irods_fs_admin'),
+    //     'access arguments' => array('access administration pages irods_fs'),
+    //     'type' => MENU_NORMAL_ITEM,
+    //     'menu_name' => 'irods_fs', //Drupal Rods
+    // );
+
     $items['admin/config/media/irods_fs'] = array(
         'title' => 'iRODS Data Storage',
         'description' => 'Configure your iRODS credentials and connection',
         'page callback' => 'drupal_get_form',
         'page arguments' => array('irods_fs_admin'),
         'access arguments' => array('access administration pages irods_fs'),
-        'type' => MENU_NORMAL_ITEM,
-        'menu_name' => 'irods_fs', //Drupal Rods
     );
+
 /*
     $items['admin/config/media/irods_fs/manage'] = array(
         'title' => 'iRODS Data Storage',
@@ -60,6 +69,15 @@ function irods_fs_menu() {
     );
 */
     return $items;
+}
+
+function irods_fs_permission() {
+  return array(
+    'access administration pages irods_fs' => array(
+      'title' => t('Access irods_fs admin pages'),
+      'description' => t('Perform administration tasks for irods_fs.'),
+    ),
+  );
 }
 
 /*
